@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventário Anual Patrimonial 2025 - Faculdade de Odontologia UFMG</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .hero-bg {
+            background-color: #003366;
+            background-image: linear-gradient(45deg, rgba(0, 28, 56, 0.95), rgba(0, 83, 166, 0.95)), url('https://placehold.co/1920x1080/003366/FFFFFF?text=');
+            background-size: cover;
+            background-position: center;
+        }
+        .section-title {
+            border-left: 4px solid #0053a6;
+            padding-left: 1rem;
+        }
+        .category-card {
+            transition: all 0.2s ease-in-out;
+        }
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            border-color: #0053a6;
+        }
+        .faq-item, .subcategory-accordion-item {
+            transition: box-shadow 0.2s ease-in-out;
+        }
+        .faq-item:hover, .subcategory-accordion-item:hover {
+             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .subcategory-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+            padding: 0 1rem; /* Padding horizontal fixo */
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Cabeçalho e Navegação -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <img src="https://placehold.co/100x50/FFFFFF/003366?text=LOGO+FAO" alt="Logo FAO UFMG" class="h-10">
+                <span class="text-xl font-semibold text-gray-700 hidden md:block">Patrimônio</span>
+            </div>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#inicio" class="text-gray-600 hover:text-blue-700 transition">Início</a>
+                <a href="#relatorios" class="text-gray-600 hover:text-blue-700 transition">Relatórios</a>
+                <a href="#comissao" class="text-gray-600 hover:text-blue-700 transition">Comissão</a>
+                <a href="#guias" class="text-gray-600 hover:text-blue-700 transition">Guias e Tutoriais</a>
+                <a href="#contato" class="text-gray-600 hover:text-blue-700 transition">Contato</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+        <!-- Menu Mobile -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+            <a href="#inicio" class="block py-2 text-gray-600 hover:text-blue-700">Início</a>
+            <a href="#relatorios" class="block py-2 text-gray-600 hover:text-blue-700">Relatórios</a>
+            <a href="#comissao" class="block py-2 text-gray-600 hover:text-blue-700">Comissão</a>
+            <a href="#guias" class="block py-2 text-gray-600 hover:text-blue-700">Guias e Tutoriais</a>
+            <a href="#contato" class="block py-2 text-gray-600 hover:text-blue-700">Contato</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Seção Inicial (Hero) -->
+        <section id="inicio" class="hero-bg text-white">
+            <div class="container mx-auto px-6 py-24 text-center">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4">Inventário Anual Patrimonial 2025</h1>
+                <p class="text-lg md:text-xl mb-8 max-w-3xl mx-auto">Modernizando e simplificando a gestão de bens móveis da Faculdade de Odontologia da UFMG.</p>
+                <div class="bg-white/20 backdrop-blur-sm border border-white/30 rounded-lg p-6 max-w-md mx-auto">
+                    <h2 class="text-xl font-semibold mb-2">Prazo Final para Entrega</h2>
+                    <p class="text-4xl font-bold text-yellow-300">31 de Outubro de 2025</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Busca de Relatórios -->
+        <section id="relatorios" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold section-title inline-block">Encontre seu Relatório</h2>
+                    <p class="text-gray-600 mt-4 max-w-2xl mx-auto">Navegue pelas categorias abaixo para encontrar o relatório do seu local de guarda.</p>
+                </div>
+
+                <!-- Navegação por Blocos -->
+                <div id="report-navigation" class="max-w-5xl mx-auto">
+                    <!-- Blocos de Categorias Principais -->
+                    <div id="main-categories" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="category-card bg-white p-6 rounded-lg border-2 border-transparent cursor-pointer text-center" data-category="departamentos">
+                            <i data-lucide="building-2" class="mx-auto h-12 w-12 text-blue-600 mb-4"></i>
+                            <h3 class="text-xl font-bold text-gray-800">Departamentos</h3>
+                        </div>
+                        <div class="category-card bg-white p-6 rounded-lg border-2 border-transparent cursor-pointer text-center" data-category="academico">
+                            <i data-lucide="graduation-cap" class="mx-auto h-12 w-12 text-blue-600 mb-4"></i>
+                            <h3 class="text-xl font-bold text-gray-800">Acadêmico e Extensão</h3>
+                        </div>
+                        <div class="category-card bg-white p-6 rounded-lg border-2 border-transparent cursor-pointer text-center" data-category="clinicas">
+                            <i data-lucide="clipboard-plus" class="mx-auto h-12 w-12 text-blue-600 mb-4"></i>
+                            <h3 class="text-xl font-bold text-gray-800">Clínicas</h3>
+                        </div>
+                        <div class="category-card bg-white p-6 rounded-lg border-2 border-transparent cursor-pointer text-center" data-category="infraestrutura_oficina">
+                            <i data-lucide="wrench" class="mx-auto h-12 w-12 text-blue-600 mb-4"></i>
+                            <h3 class="text-xl font-bold text-gray-800">Infraestrutura e Oficina</h3>
+                        </div>
+                         <div class="category-card bg-white p-6 rounded-lg border-2 border-transparent cursor-pointer text-center" data-category="biblioteca">
+                            <i data-lucide="book-marked" class="mx-auto h-12 w-12 text-blue-600 mb-4"></i>
+                            <h3 class="text-xl font-bold text-gray-800">Biblioteca</h3>
+                        </div>
+                        <div class="category-card bg-white p-6 rounded-lg border-2 border-transparent cursor-pointer text-center" data-category="administrativo">
+                            <i data-lucide="briefcase" class="mx-auto h-12 w-12 text-blue-600 mb-4"></i>
+                            <h3 class="text-xl font-bold text-gray-800">Administrativo</h3>
+                        </div>
+                    </div>
+
+                    <!-- Container para Subcategorias (inicialmente oculto) -->
+                    <div id="subcategories-container" class="hidden mt-8">
+                        <button id="back-to-categories" class="flex items-center font-semibold text-blue-600 hover:text-blue-800 mb-6">
+                            <i data-lucide="arrow-left" class="mr-2 h-5 w-5"></i>
+                            Voltar para Categorias
+                        </button>
+                        <div id="subcategories-list" class="space-y-3">
+                            <!-- Acordeão de subcategorias ou lista direta será inserido aqui pelo JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Dúvidas Frequentes -->
+        <section id="faq" class="py-20 bg-blue-50">
+            <div class="container mx-auto px-6">
+                 <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold section-title inline-block">Principais Dúvidas do Inventário</h2>
+                    <p class="text-gray-600 mt-4 max-w-3xl mx-auto">Respostas rápidas para as situações mais comuns que você pode encontrar durante a conferência.</p>
+                </div>
+                <div class="max-w-4xl mx-auto space-y-4" id="faq-container">
+                    <!-- FAQ 1 -->
+                    <div class="faq-item bg-white border rounded-lg">
+                        <button class="faq-question w-full flex justify-between items-center p-5 text-left font-semibold text-lg">
+                            <span>O que fazer com BENS NÃO LOCALIZADOS?</span>
+                            <i data-lucide="chevron-down" class="transition-transform"></i>
+                        </button>
+                        <div class="faq-answer hidden px-5 pb-5 text-gray-600">
+                            <p>Se um bem que consta no seu relatório não for encontrado no local, o procedimento é simplesmente reportar o ocorrido à Comissão de Inventário. Anote o número de patrimônio e a descrição do bem para formalizar a comunicação.</p>
+                        </div>
+                    </div>
+                    <!-- FAQ 2 -->
+                    <div class="faq-item bg-white border rounded-lg">
+                        <button class="faq-question w-full flex justify-between items-center p-5 text-left font-semibold text-lg">
+                            <span>E se eu encontrar BENS QUE NÃO ESTÃO NA LISTA?</span>
+                            <i data-lucide="chevron-down" class="transition-transform"></i>
+                        </button>
+                        <div class="faq-answer hidden px-5 pb-5 text-gray-600">
+                            <p>Esses são os "bens existentes não listados" ou "sobrantes". O procedimento é relatar a existência deles em um campo apropriado no seu relatório. Caso já tenha relatado no inventário anterior, basta sinalizar que os bens permanecem no local, não sendo necessário um novo registro detalhado.</p>
+                        </div>
+                    </div>
+                    <!-- FAQ 3 -->
+                    <div class="faq-item bg-white border rounded-lg">
+                        <button class="faq-question w-full flex justify-between items-center p-5 text-left font-semibold text-lg">
+                            <span>Como proceder com BENS PARTICULARES?</span>
+                            <i data-lucide="chevron-down" class="transition-transform"></i>
+                        </button>
+                        <div class="faq-answer hidden px-5 pb-5 text-gray-600">
+                            <p>É importante declarar a existência de bens particulares (que não pertencem à Universidade) no seu local de guarda para evitar que sejam confundidos com o patrimônio público. Se já foram declarados no ano anterior, você só precisa confirmar que eles continuam no mesmo local. Uma nova declaração só é necessária para itens novos.</p>
+                        </div>
+                    </div>
+                     <!-- FAQ 4 -->
+                    <div class="faq-item bg-white border rounded-lg">
+                        <button class="faq-question w-full flex justify-between items-center p-5 text-left font-semibold text-lg">
+                            <span>Posso transferir um bem para outro setor?</span>
+                            <i data-lucide="chevron-down" class="transition-transform"></i>
+                        </button>
+                        <div class="faq-answer hidden px-5 pb-5 text-gray-600">
+                            <p>Sim, mas a transferência deve ser formalizada através do "Termo de Transferência de Responsabilidade" antes de ser refletida no inventário. O termo deve ser preenchido, assinado pelos responsáveis de ambos os setores (origem e destino) e encaminhado à Seção de Patrimônio para atualização cadastral.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção da Comissão -->
+        <section id="comissao" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold section-title inline-block">Comissão do Inventário 2025</h2>
+                    <p class="text-gray-600 mt-4 max-w-2xl mx-auto">Conheça os membros responsáveis pela coordenação do inventário deste ano.</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Membro 1 -->
+                    <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                        <img src="https://placehold.co/128x128/E0E0E0/333?text=Foto" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-blue-200">
+                        <h3 class="text-xl font-bold">Prof. Dr. Fulano de Tal</h3>
+                        <p class="text-blue-700 font-semibold">Presidente</p>
+                        <p class="text-gray-500 mt-2">presidente.inventario@odonto.ufmg.br</p>
+                    </div>
+                    <!-- Membro 2 -->
+                    <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                        <img src="https://placehold.co/128x128/E0E0E0/333?text=Foto" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-gray-200">
+                        <h3 class="text-xl font-bold">Ciclana da Silva</h3>
+                        <p class="text-blue-700 font-semibold">Membro Técnico</p>
+                        <p class="text-gray-500 mt-2">membro1.inventario@odonto.ufmg.br</p>
+                    </div>
+                    <!-- Membro 3 -->
+                    <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                        <img src="https://placehold.co/128x128/E0E0E0/333?text=Foto" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-gray-200">
+                        <h3 class="text-xl font-bold">Beltrano Pereira</h3>
+                        <p class="text-blue-700 font-semibold">Membro Técnico</p>
+                        <p class="text-gray-500 mt-2">membro2.inventario@odonto.ufmg.br</p>
+                    </div>
+                     <!-- Membro 4 -->
+                    <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                        <img src="https://placehold.co/128x128/E0E0E0/333?text=Foto" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-gray-200">
+                        <h3 class="text-xl font-bold">Joana Souza</h3>
+                        <p class="text-blue-700 font-semibold">Membro Administrativo</p>
+                        <p class="text-gray-500 mt-2">membro3.inventario@odonto.ufmg.br</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Guias e Tutoriais -->
+        <section id="guias" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                     <h2 class="text-3xl font-bold section-title inline-block">Guias e Tutoriais</h2>
+                    <p class="text-gray-600 mt-4 max-w-2xl mx-auto">Acesse materiais de apoio para auxiliar no processo de conferência.</p>
+                </div>
+                <div class="max-w-3xl mx-auto">
+                    <div class="space-y-4">
+                        <a href="#" class="flex items-center bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition group border">
+                            <i data-lucide="file-text" class="text-blue-600 mr-4 h-8 w-8"></i>
+                            <div>
+                                <span class="font-semibold text-lg text-gray-800">Guia Rápido do Inventário</span>
+                                <p class="text-gray-600">Um passo a passo simplificado para a conferência.</p>
+                            </div>
+                            <i data-lucide="download" class="ml-auto text-gray-500 group-hover:text-blue-700"></i>
+                        </a>
+                        <a href="#" class="flex items-center bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition group border">
+                            <i data-lucide="book-open" class="text-blue-600 mr-4 h-8 w-8"></i>
+                            <div>
+                                <span class="font-semibold text-lg text-gray-800">Manual Completo do Sistema</span>
+                                <p class="text-gray-600">Instruções detalhadas sobre o sistema de patrimônio.</p>
+                            </div>
+                            <i data-lucide="download" class="ml-auto text-gray-500 group-hover:text-blue-700"></i>
+                        </a>
+                        <a href="#" class="flex items-center bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition group border">
+                            <i data-lucide="video" class="text-blue-600 mr-4 h-8 w-8"></i>
+                            <div>
+                                <span class="font-semibold text-lg text-gray-800">Vídeo Tutorial de Conferência</span>
+                                <p class="text-gray-600">Assista como realizar a conferência na prática.</p>
+                            </div>
+                            <i data-lucide="external-link" class="ml-auto text-gray-500 group-hover:text-blue-700"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Contato -->
+        <section id="contato" class="py-20 bg-blue-800 text-white">
+            <div class="container mx-auto px-6 text-center">
+                 <h2 class="text-3xl font-bold mb-4">Precisa de Ajuda?</h2>
+                <p class="text-blue-200 mb-8 max-w-2xl mx-auto">Entre em contato com a Seção de Patrimônio. Estamos à disposição para auxiliar durante todo o processo do inventário.</p>
+                <div class="flex flex-wrap justify-center gap-8">
+                    <div class="flex items-center space-x-3">
+                        <i data-lucide="mail"></i>
+                        <a href="mailto:patrimonio@odonto.ufmg.br" class="hover:underline">patrimonio@odonto.ufmg.br</a>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <i data-lucide="phone"></i>
+                        <span>(31) 3409-2450</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <i data-lucide="map-pin"></i>
+                        <span>Sala 201 - Prédio Principal</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="bg-gray-800 text-white">
+        <div class="container mx-auto px-6 py-8 text-center">
+            <p>&copy; 2025 Faculdade de Odontologia - Universidade Federal de Minas Gerais</p>
+            <p class="text-sm text-gray-400 mt-2">Desenvolvido para modernizar a gestão patrimonial.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Ícones Lucide
+        lucide.createIcons();
+
+        // Menu Mobile
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Dados para os relatórios
+        const reportsData = [
+            // Departamentos
+            { id: 66, responsible: 'PROFA. SORAIA MACARI', location: 'SALA 3108 – DEPARTAMENTO DE ORTODONTIA', mainCategory: 'departamentos', subCategory: 'Saúde Bucal da Criança e do Adolescente', reportUrl: '#', termUrl: '#' },
+            { id: 67, responsible: 'PROFA. CRISTIANE BACCIN BENDO NEVES', location: 'SALA 3306 – CHEFIA SCA', mainCategory: 'departamentos', subCategory: 'Saúde Bucal da Criança e do Adolescente', reportUrl: '#', termUrl: '#' },
+            { id: 68, responsible: 'RICARDO DIAS LUZ', location: 'SALA 3307 – SECRETARIA SCA', mainCategory: 'departamentos', subCategory: 'Saúde Bucal da Criança e do Adolescente', reportUrl: '#', termUrl: '#' },
+            { id: 69, responsible: 'PROFA. RAQUEL GONCALVES VIEIRA DE ANDRADE', location: 'SALA 3317 – GABINETE DE PROFESSOR 1', mainCategory: 'departamentos', subCategory: 'Saúde Bucal da Criança e do Adolescente', reportUrl: '#', termUrl: '#' },
+            { id: 70, responsible: 'PROFA. SHEYLA MARCIA AUAD', location: 'SALA 3319 – GABINETE DE PROFESSOR 2', mainCategory: 'departamentos', subCategory: 'Saúde Bucal da Criança e do Adolescente', reportUrl: '#', termUrl: '#' },
+            { id: 71, responsible: 'PROFA. ISABELA ALMEIDA PORDEUS', location: 'SALA 3320 – GABINETE DE PROFESSOR 3', mainCategory: 'departamentos', subCategory: 'Saúde Bucal da Criança e do Adolescente', reportUrl: '#', termUrl: '#' },
+            { id: 72, responsible: 'PROFA. IZABELLA BARBOSA FERNANDES', location: 'SALA 3322 – GABINETE DE PROFESSOR 4', mainCategory: 'departamentos', subCategory: 'Saúde Bucal da Criança e do Adolescente', reportUrl: '#', termUrl: '#' },
+            { id: 59, responsible: 'PROFA. CAMILLA APARECIDA SILVA DE OLIVEIRA LIMA', location: 'SALA 3303 – GABINETE DE PROFESSOR', mainCategory: 'departamentos', subCategory: 'Odontologia Social Preventiva', reportUrl: '#', termUrl: '#' },
+            { id: 60, responsible: 'PROFA. ANA CRISTINA BORGES DE OLIVEIRA', location: 'SALA 3314 – GABINETE DE PROFESSORES 04', mainCategory: 'departamentos', subCategory: 'Odontologia Social Preventiva', reportUrl: '#', termUrl: '#' },
+            { id: 61, responsible: 'PROFA. DANIELE LOPES LEAL', location: 'SALA 3325 – GABINETE DE PROFESSOR 01', mainCategory: 'departamentos', subCategory: 'Odontologia Social Preventiva', reportUrl: '#', termUrl: '#' },
+            { id: 62, responsible: 'PROFA. VIVIANE ELISANGELA GOMES', location: 'SALA 3326 – GABINETE DE PROFESSORES 02', mainCategory: 'departamentos', subCategory: 'Odontologia Social Preventiva', reportUrl: '#', termUrl: '#' },
+            { id: 63, responsible: 'PROFA. JANICE SIMPSON DE PAULA', location: 'SALA 3327 – GABINETE DE PROFESSORES 03', mainCategory: 'departamentos', subCategory: 'Odontologia Social Preventiva', reportUrl: '#', termUrl: '#' },
+            { id: 64, responsible: 'PROFA. ANDREIA MARIA ARAÚJO DRUMMOND', location: 'LABORATÓRIO DE PESQUISA DOSP', mainCategory: 'departamentos', subCategory: 'Odontologia Social Preventiva', reportUrl: '#', termUrl: '#' },
+            { id: 65, responsible: 'A Definir', location: 'SALA 3304 - CHEFIA OSP/SEC/ESTÁGIO SUPERVISIONA', mainCategory: 'departamentos', subCategory: 'Odontologia Social Preventiva', reportUrl: '#', termUrl: '#' },
+            { id: 73, responsible: 'PROFA. SORAIA MACARI', location: 'SALA 3101 – LABORATÓRIO – FREEZER', mainCategory: 'departamentos', subCategory: 'Odontologia Restauradora', reportUrl: '#', termUrl: '#' },
+            { id: 74, responsible: 'PROFA. IVANA MARCIA ALVES DINIZ', location: 'SALA 3102 – LABORATÓRIO CULTURA DE CÉLULAS', mainCategory: 'departamentos', subCategory: 'Odontologia Restauradora', reportUrl: '#', termUrl: '#' },
+            { id: 75, responsible: 'PROFA. MARIA ESPERANZA CORTES SEGURA', location: 'SALA 3103 – LABORATÓRIO DE PESQUISA 3', mainCategory: 'departamentos', subCategory: 'Odontologia Restauradora', reportUrl: '#', termUrl: '#' },
+            { id: 76, responsible: 'PROFA. ROGELI TIBURCIO RIBEIRO DA CUNHA PEIXOTO', location: 'SALA 3104 – LABORATÓRIO MULTIDISCIPLINAR 01', mainCategory: 'departamentos', subCategory: 'Odontologia Restauradora', reportUrl: '#', termUrl: '#' },
+            { id: 77, responsible: 'PROFA. RODRIGO RICHARD DA SILVEIRA', location: 'SALA 3301 – GABINETE DE PROFESSOR 01', mainCategory: 'departamentos', subCategory: 'Odontologia Restauradora', reportUrl: '#', termUrl: '#' },
+            { id: 78, responsible: 'PROFA. JULIANA VILELA BASTOS', location: 'SALA 3308 – CHEFIA_SECRETARIA ODR', mainCategory: 'departamentos', subCategory: 'Odontologia Restauradora', reportUrl: '#', termUrl: '#' },
+            { id: 79, responsible: 'PROFA. RAFAELA DA SILVEIRA PINTO', location: 'SALA 3336 – GABINETE DE PROFESSOR 02', mainCategory: 'departamentos', subCategory: 'Odontologia Restauradora', reportUrl: '#', termUrl: '#' },
+            { id: 80, responsible: 'PROFA. ANA CECILIA DINIZ VIANA', location: 'SALA 3337 – GABINETE DE PROFESSORES 03', mainCategory: 'departamentos', subCategory: 'Odontologia Restauradora', reportUrl: '#', termUrl: '#' },
+            { id: 81, responsible: 'PROFA. MARCOS DANIEL SEPTIMIO LANZA', location: 'SALA 3338 – GABINETE DE PROFESSOR 04', mainCategory: 'departamentos', subCategory: 'Odontologia Restauradora', reportUrl: '#', termUrl: '#' },
+            { id: 82, responsible: 'PROFA. ROGELI TIBURCIO RIBEIRO DA CUNHA PEIXOTO', location: 'SALA 3339 – GABINETE DE PROFESSOR 05', mainCategory: 'departamentos', subCategory: 'Odontologia Restauradora', reportUrl: '#', termUrl: '#' },
+            { id: 83, responsible: 'PROFA. LIA SILVA DE CASTILHO', location: 'SALA 3340 – GABINETE DE PROFESSOR 06', mainCategory: 'departamentos', subCategory: 'Odontologia Restauradora', reportUrl: '#', termUrl: '#' },
+            { id: 84, responsible: 'PROFA. ISABELLA FARIA DA CUNHA PEIXOTO', location: 'SALA 3341 – GABINETE DE PROFESSOR 07', mainCategory: 'departamentos', subCategory: 'Odontologia Restauradora', reportUrl: '#', termUrl: '#' },
+            { id: 85, responsible: 'PROFA. LIVIA FAVARO ZEOLA', location: 'SALA 3342 – GABINETE DE PROFESSOR 08', mainCategory: 'departamentos', subCategory: 'Odontologia Restauradora', reportUrl: '#', termUrl: '#' },
+            { id: 86, responsible: 'PROFA. MARIA ESPERANZA CORTES SEGURA', location: 'SALA 3343 – GABINETE DE PROFESSOR 09', mainCategory: 'departamentos', subCategory: 'Odontologia Restauradora', reportUrl: '#', termUrl: '#' },
+            { id: 87, responsible: 'PROFA. PATRICIA VALENTE ARAUJO', location: 'SALA 3344 – GABINETE DE PROFESSOR 10', mainCategory: 'departamentos', subCategory: 'Odontologia Restauradora', reportUrl: '#', termUrl: '#' },
+            { id: 88, responsible: 'PROF. JOSE AUGUSTO CESAR DISCACCATI', location: 'SALA 3345 – GABINETE DE PROFESSOR 11', mainCategory: 'departamentos', subCategory: 'Odontologia Restauradora', reportUrl: '#', termUrl: '#' },
+            { id: 89, responsible: 'PROFA. CAROLINA BOSSO ANDRE', location: 'SALA 3404 – LABORATÓRIO DE PESQUISA DE MATERIAIS', mainCategory: 'departamentos', subCategory: 'Odontologia Restauradora', reportUrl: '#', termUrl: '#' },
+            
+            // Acadêmico e Extensão
+            { id: 42, responsible: 'PROF. LUCAS GUIMARÃES ABREU', location: 'SALA 2909A', mainCategory: 'academico', subCategory: 'Colegiado de Graduação', reportUrl: '#', termUrl: '#' },
+            { id: 43, responsible: 'PROF. LUCAS GUIMARÃES ABREU', location: 'SALA 2909 – COLEGIADO DE GRADUAÇÃO', mainCategory: 'academico', subCategory: 'Colegiado de Graduação', reportUrl: '#', termUrl: '#' },
+            { id: 44, responsible: 'PROF. LUCAS GUIMARÃES ABREU', location: 'SALA 2912 – NDE', mainCategory: 'academico', subCategory: 'Colegiado de Graduação', reportUrl: '#', termUrl: '#' },
+            { id: 45, responsible: 'ALAN FELIPE SOUZA', location: 'SALA 2913 – NEPPO', mainCategory: 'academico', subCategory: 'Colegiado de Graduação', reportUrl: '#', termUrl: '#' },
+            { id: 46, responsible: 'PROFA. ISABELLA FARIA DA CUNHA PEIXOTO', location: 'SALA 2301 – CLÍNICA 7 – PÓS GRADUAÇÃO', mainCategory: 'academico', subCategory: 'Colegiado de Pós-Graduação', reportUrl: '#', termUrl: '#' },
+            { id: 47, responsible: 'PROF. MAURO HENRIQUE NOGUEIRA', location: 'SALA 3309 – CHEFIA DO COLEGIADO E PÓS GRADUAÇÃO', mainCategory: 'academico', subCategory: 'Colegiado de Pós-Graduação', reportUrl: '#', termUrl: '#' },
+            { id: 48, responsible: 'PROF. MAURO HENRIQUE NOGUEIRA GUIMARAES DE ABREU', location: 'SALA 3310 – SECRETARIA DO COL. DE PÓS GRADUAÇÃO', mainCategory: 'academico', subCategory: 'Colegiado de Pós-Graduação', reportUrl: '#', termUrl: '#' },
+            { id: 49, responsible: 'PROF. MAURO HENRIQUE NOGUEIRA GUIMARAES DE ABREU', location: 'SALA 3311 – PÓS-DOUTORADO E REVISTA', mainCategory: 'academico', subCategory: 'Colegiado de Pós-Graduação', reportUrl: '#', termUrl: '#' },
+            { id: 50, responsible: 'PROF. MAURO HENRIQUE NOGUEIRA GUIMARAES DE ABREU', location: 'SALA 3312 – RECEPÇÃO COL. PÓS GRADUAÇÃO E NAPQ', mainCategory: 'academico', subCategory: 'Colegiado de Pós-Graduação', reportUrl: '#', termUrl: '#' },
+            { id: 51, responsible: 'PROF. FELIPE PAIVA FONSECA', location: 'SALA 3313 – SALA DE ESTUDOS 01 – PÓS GRADUAÇÃO', mainCategory: 'academico', subCategory: 'Colegiado de Pós-Graduação', reportUrl: '#', termUrl: '#' },
+            { id: 52, responsible: 'PROFA. IVANA MARCIA ALVES DINIZ', location: 'SALA 3315 – SALA DE ESTUDOS 02 – PÓS GRADUAÇÃO', mainCategory: 'academico', subCategory: 'Colegiado de Pós-Graduação', reportUrl: '#', termUrl: '#' },
+            { id: 53, responsible: 'PROF. LUIS OTAVIO DE MIRANDA COTA', location: 'SALA 3316 – SALA DE ESTUDOS 03 – PÓS GRADUAÇÃO', mainCategory: 'academico', subCategory: 'Colegiado de Pós-Graduação', reportUrl: '#', termUrl: '#' },
+            { id: 54, responsible: 'PROF. SAUL MARTINS DE PAIVA', location: 'SALA 3318 – SALA DE ESTUDOS 04 – PÓS GRADUAÇÃO', mainCategory: 'academico', subCategory: 'Colegiado de Pós-Graduação', reportUrl: '#', termUrl: '#' },
+            { id: 55, responsible: 'PROF. MAURO HENRIQUE NOGUEIRA GUIMARAES DE ABREU', location: 'SALA 3323 – ALMOXARIFADO COLEGIADO PÓS GRADUAÇÃO', mainCategory: 'academico', subCategory: 'Colegiado de Pós-Graduação', reportUrl: '#', termUrl: '#' },
+            { id: 56, responsible: 'PROF. MAURO HENRIQUE NOGUEIRA GUIMARAES DE ABREU', location: 'SALA 3403 – MULTIMEIOS', mainCategory: 'academico', subCategory: 'Colegiado de Pós-Graduação', reportUrl: '#', termUrl: '#' },
+            { id: 57, responsible: 'PROF. MAURO HENRIQUE NOGUEIRA GUIMARAES DE ABREU', location: 'SALA 3412 – SALA DE AULA – PÓS GRADUAÇÃO', mainCategory: 'academico', subCategory: 'Colegiado de Pós-Graduação', reportUrl: '#', termUrl: '#' },
+            { id: 58, responsible: 'PROF. MAURO HENRIQUE NOGUEIRA GUIMARAES DE ABREU', location: 'SALA 3418 – SALA DE AULA PÓS GRADUAÇÃO', mainCategory: 'academico', subCategory: 'Colegiado de Pós-Graduação', reportUrl: '#', termUrl: '#' },
+            { id: 6, responsible: 'LILIAN SIMONI SIDNEY', location: 'SALA 2917 – SECRETARIA DO CENTRO DE EXTENSÃO', mainCategory: 'academico', subCategory: 'CENEX', reportUrl: '#', termUrl: '#' },
+            { id: 41, responsible: 'PROFA. RENATA M. CYRINO', location: 'SALA 2918 – COORDENAÇÃO DO CENTRO DE EXTENSÃO', mainCategory: 'academico', subCategory: 'CENEX', reportUrl: '#', termUrl: '#' },
+
+            // Clínicas
+            { id: 7, responsible: 'Prof. Dr. João da Silva', location: 'Clínica de Graduação I', mainCategory: 'clinicas', subCategory: 'Clínicas de Graduação', reportUrl: '#', termUrl: '#' },
+            { id: 8, responsible: 'Profa. Dra. Beatriz Martins', location: 'Clínica de Radiologia Odontológica', mainCategory: 'clinicas', subCategory: 'Clínicas Especializadas', reportUrl: '#', termUrl: '#' },
+            { id: 9, responsible: 'Dr. Ricardo Mendes', location: 'Clínica de Pós-Graduação em Ortodontia', mainCategory: 'clinicas', subCategory: 'Clínicas de Pós-Graduação', reportUrl: '#', termUrl: '#' },
+
+            // Infraestrutura e Oficina
+            { id: 10, responsible: 'Profa. Dra. Maria Oliveira', location: 'Laboratório de Prótese Dentária', mainCategory: 'infraestrutura_oficina', subCategory: 'Laboratórios', reportUrl: '#', termUrl: '#' },
+            { id: 11, responsible: 'Prof. Dr. Ricardo Almeida', location: 'Laboratório de Pesquisa em Biomateriais', mainCategory: 'infraestrutura_oficina', subCategory: 'Laboratórios', reportUrl: '#', termUrl: '#' },
+            { id: 12, responsible: 'Profa. Dra. Lúcia Guimarães', location: 'Laboratório de Histologia', mainCategory: 'infraestrutura_oficina', subCategory: 'Laboratórios', reportUrl: '#', termUrl: '#' },
+            { id: 13, responsible: 'Sérgio Mendes', location: 'Setor de Manutenção', mainCategory: 'infraestrutura_oficina', subCategory: 'Oficina e Manutenção', reportUrl: '#', termUrl: '#' },
+            { id: 14, responsible: 'Laura Mendes', location: 'Secretaria do CASEU', mainCategory: 'infraestrutura_oficina', subCategory: 'CASEU', reportUrl: '#', termUrl: '#' },
+
+            // Biblioteca
+            { id: 15, responsible: 'MIRIAM CANDIDA DE JESUS', location: 'HALL COLEÇÃO DE LIVROS E TESES, ETC', mainCategory: 'biblioteca', reportUrl: '#', termUrl: '#' },
+            { id: 31, responsible: 'VALERIA FERREIRA DE JESUS LAURIANO', location: 'HALL COLEÇÃO DE PERIÓDICOS', mainCategory: 'biblioteca', reportUrl: '#', termUrl: '#' },
+            { id: 32, responsible: 'LUCIANA GONCALVES SILVA SOUZA', location: 'HALL DE ENTRADA DA BIBLIOTECA', mainCategory: 'biblioteca', reportUrl: '#', termUrl: '#' },
+            { id: 33, responsible: 'LUCIANA GONCALVES SILVA SOUZA', location: 'BALCÃO DE EMPRÉSTIMO', mainCategory: 'biblioteca', reportUrl: '#', termUrl: '#' },
+            { id: 34, responsible: 'MIRIAM CANDIDA DE JESUS', location: 'SALA 3401 - E_F_G_H_I_J - ESTUDO EM GRUPO', mainCategory: 'biblioteca', reportUrl: '#', termUrl: '#' },
+            { id: 35, responsible: 'CLAUDIA MARCIA DIAS SILVA', location: 'SALA 3401A - PESQUISA BIBLIOGRÁFICA', mainCategory: 'biblioteca', reportUrl: '#', termUrl: '#' },
+            { id: 36, responsible: 'SERGIO BARBOSA DOS SANTOS', location: 'SETOR DE ESTUDOS DA BIBLIOTECA_FO', mainCategory: 'biblioteca', reportUrl: '#', termUrl: '#' },
+            { id: 37, responsible: 'CLAUDIA MARCIA DIAS SILVA', location: 'SALA 3401B - CHEFIA DA BIBLIOTECA', mainCategory: 'biblioteca', reportUrl: '#', termUrl: '#' },
+            { id: 38, responsible: 'VALERIA FERREIRA DE JESUS LAURIANO', location: 'SALA 3401C - SALA DE FUNCIONÁRIO', mainCategory: 'biblioteca', reportUrl: '#', termUrl: '#' },
+            { id: 39, responsible: 'MIRIAM CANDIDA DE JESUS', location: 'SALA 3401D - PROCES.TÉCNICO_COMUTAÇÃO', mainCategory: 'biblioteca', reportUrl: '#', termUrl: '#' },
+            { id: 40, responsible: 'MATEUS HENRIQUE SILVA TRINDADE', location: 'SALA 3401L - DEPÓSITO_BIBLIOTECA', mainCategory: 'biblioteca', reportUrl: '#', termUrl: '#' },
+
+            // Administrativo
+            { id: 16, responsible: 'ADIMILSON QUININO', location: 'SALA 1023 - SEÇÃO DE ALMOXARIFADO', mainCategory: 'administrativo', subCategory: 'Seção de Almoxarifado', reportUrl: '#', termUrl: '#' },
+            { id: 17, responsible: 'PROFA. MARIA INÊS SENNA', location: 'SALA 2901 - CENTRO DE MEMÓRIA - ARQUIVO', mainCategory: 'administrativo', subCategory: 'Centro de Memória', reportUrl: '#', termUrl: '#' },
+            { id: 18, responsible: 'ALAN FELIPE SOUZA', location: 'SALA 2910 - CHEFIA DO NÚCLEO DE INFORMÁTICA', mainCategory: 'administrativo', subCategory: 'Tecnologia da Informação', reportUrl: '#', termUrl: '#' },
+            { id: 19, responsible: 'BÁRBARA SOARES', location: 'SALA 2911 - SEÇÃO DE PATRIMÔNIO', mainCategory: 'administrativo', subCategory: 'Seção de Patrimônio', reportUrl: '#', termUrl: '#' },
+            { id: 20, responsible: 'FRANKLIN MINARDI', location: 'SALA 2916 - Seção de Pessoal', mainCategory: 'administrativo', subCategory: 'Seção de Pessoal', reportUrl: '#', termUrl: '#' },
+            { id: 21, responsible: 'RONALDO CONDÉ', location: 'SALA 2919 - Sala de Reuniões', mainCategory: 'administrativo', subCategory: 'Diretoria', reportUrl: '#', termUrl: '#' },
+            { id: 22, responsible: 'LILIAN CRISTINA', location: 'SALA 2920 - SEÇÃO DE COMPRAS', mainCategory: 'administrativo', subCategory: 'Seção de Compras', reportUrl: '#', termUrl: '#' },
+            { id: 23, responsible: 'MARCELO RIBEIRO', location: 'SALA 2921 - SEÇÃO DE CONTABILIDADE', mainCategory: 'administrativo', subCategory: 'Seção de Contabilidade', reportUrl: '#', termUrl: '#' },
+            { id: 24, responsible: 'LAYSSE MACEDO', location: 'SALA 2925 - GESTÃO DE CONTRATOS', mainCategory: 'administrativo', subCategory: 'Gestão de Contratos', reportUrl: '#', termUrl: '#' },
+            { id: 25, responsible: 'RONALDO CONDE', location: 'SALA 2926 - RECEPÇÃO DA DIRETORIA', mainCategory: 'administrativo', subCategory: 'Diretoria', reportUrl: '#', termUrl: '#' },
+            { id: 26, responsible: 'RONALDO CONDE', location: 'SALA 2926 - SECRETARIA GERAL', mainCategory: 'administrativo', subCategory: 'Diretoria', reportUrl: '#', termUrl: '#' },
+            { id: 27, responsible: 'SILVILENE GIOVANE', location: 'SALA 2927 - SUPERINTENDÊNCIA ADMINISTRATIVA', mainCategory: 'administrativo', subCategory: 'Superintendência Administrativa', reportUrl: '#', termUrl: '#' },
+            { id: 28, responsible: 'PROF. ALLYSSON NOGUEIRA', location: 'SALA 2928 - DIRETORIA E VICE-DIRETORIA', mainCategory: 'administrativo', subCategory: 'Diretoria', reportUrl: '#', termUrl: '#' },
+            { id: 29, responsible: 'RONALDO CONDE', location: 'SALA 2929 - SALA DE REUNIÃO', mainCategory: 'administrativo', subCategory: 'Diretoria', reportUrl: '#', termUrl: '#' },
+            { id: 30, responsible: 'RONALDO CONDE', location: 'SALA 2930 - CONGREGAÇÃO', mainCategory: 'administrativo', subCategory: 'Diretoria', reportUrl: '#', termUrl: '#' }
+        ];
+
+        const mainCategoriesContainer = document.getElementById('main-categories');
+        const subcategoriesContainer = document.getElementById('subcategories-container');
+        const subcategoriesList = document.getElementById('subcategories-list');
+        const backButton = document.getElementById('back-to-categories');
+
+        // Evento de clique nas categorias principais
+        mainCategoriesContainer.addEventListener('click', (e) => {
+            const categoryCard = e.target.closest('.category-card');
+            if (categoryCard) {
+                const category = categoryCard.dataset.category;
+                
+                // Limpa a lista de subcategorias
+                subcategoriesList.innerHTML = '';
+
+                // Lógica para exibir os relatórios
+                if (category === 'biblioteca') {
+                    const libraryReports = reportsData.filter(item => item.mainCategory === category);
+                    let reportsHTML = libraryReports.map(report => `
+                        <div class="bg-white rounded-lg p-4 border shadow-sm">
+                            <h4 class="font-semibold text-gray-800">${report.location}</h4>
+                            <p class="text-sm text-gray-600 mb-3">Responsável: ${report.responsible}</p>
+                            <a href="${report.reportUrl}" class="inline-flex items-center bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-700 transition text-sm">
+                                <i data-lucide="file-down" class="mr-2 h-4 w-4"></i>
+                                Baixar Relatório
+                            </a>
+                        </div>
+                    `).join('');
+                    subcategoriesList.innerHTML = `<div class="space-y-3">${reportsHTML}</div>`;
+
+                } else { 
+                    const reportsBySubcategory = reportsData
+                        .filter(item => item.mainCategory === category)
+                        .reduce((acc, report) => {
+                            if (!acc[report.subCategory]) {
+                                acc[report.subCategory] = [];
+                            }
+                            acc[report.subCategory].push(report);
+                            return acc;
+                        }, {});
+
+                    for (const subCategoryName in reportsBySubcategory) {
+                        const reportsInSub = reportsBySubcategory[subCategoryName];
+                        const accordionItem = document.createElement('div');
+                        accordionItem.className = 'subcategory-accordion-item bg-white border rounded-lg';
+                        
+                        let reportsHTML = reportsInSub.map(report => `
+                            <div class="bg-gray-50 rounded-lg p-4 border">
+                                <h4 class="font-semibold text-gray-800">${report.location}</h4>
+                                <p class="text-sm text-gray-600 mb-3">Responsável: ${report.responsible}</p>
+                                <a href="${report.reportUrl}" class="inline-flex items-center bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-700 transition text-sm">
+                                    <i data-lucide="file-down" class="mr-2 h-4 w-4"></i>
+                                    Baixar Relatório
+                                </a>
+                            </div>
+                        `).join('');
+
+                        accordionItem.innerHTML = `
+                            <button class="subcategory-header w-full flex justify-between items-center p-4 text-left font-semibold">
+                                <span>${subCategoryName}</span>
+                                <i data-lucide="chevron-down" class="transition-transform"></i>
+                            </button>
+                            <div class="subcategory-content">
+                                <div class="py-2 px-4 space-y-3">
+                                    ${reportsHTML}
+                                </div>
+                            </div>
+                        `;
+                        subcategoriesList.appendChild(accordionItem);
+                    }
+                }
+                
+                lucide.createIcons();
+
+                // Mostra a tela de subcategorias/resultados
+                mainCategoriesContainer.classList.add('hidden');
+                subcategoriesContainer.classList.remove('hidden');
+            }
+        });
+
+        // Evento de clique no acordeão de subcategorias
+        subcategoriesList.addEventListener('click', (e) => {
+            const header = e.target.closest('.subcategory-header');
+            if (header) {
+                const content = header.nextElementSibling;
+                const icon = header.querySelector('svg');
+                
+                document.querySelectorAll('.subcategory-content').forEach(c => {
+                    if (c !== content) {
+                        c.style.maxHeight = null;
+                        c.style.paddingTop = '0';
+                        c.style.paddingBottom = '0';
+                        const otherIcon = c.previousElementSibling.querySelector('svg');
+                        if (otherIcon) otherIcon.classList.remove('rotate-180');
+                    }
+                });
+                
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                    content.style.paddingTop = '0';
+                    content.style.paddingBottom = '0';
+                    if (icon) icon.classList.remove('rotate-180');
+                } else {
+                    content.style.paddingTop = '0.5rem';
+                    content.style.paddingBottom = '0.5rem';
+                    content.style.maxHeight = content.scrollHeight + "px";
+                    if (icon) icon.classList.add('rotate-180');
+                }
+            }
+        });
+
+        // Evento do botão de voltar
+        backButton.addEventListener('click', () => {
+            subcategoriesContainer.classList.add('hidden');
+            mainCategoriesContainer.classList.remove('hidden');
+        });
+
+        // Funcionalidade do FAQ
+        const faqContainer = document.getElementById('faq-container');
+        faqContainer.addEventListener('click', (e) => {
+            const questionButton = e.target.closest('.faq-question');
+            if (questionButton) {
+                const answer = questionButton.nextElementSibling;
+                const icon = questionButton.querySelector('svg');
+                
+                if (answer.classList.contains('hidden')) {
+                    answer.classList.remove('hidden');
+                    if(icon) icon.classList.add('rotate-180');
+                } else {
+                    answer.classList.add('hidden');
+                    if(icon) icon.classList.remove('rotate-180');
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>
